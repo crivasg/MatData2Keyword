@@ -51,7 +51,8 @@ namespace MatData2Keyword
                     using(fileData)
                     {
                         CSVRead csvFile = new CSVRead(fileData);
-                        fileData.Close(); 
+                        fileData.Close();
+                        PlotData plt = new PlotData(csvFile.Samples,matChart);
                     }
                 }
             }

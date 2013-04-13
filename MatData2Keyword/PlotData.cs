@@ -13,7 +13,16 @@ namespace MatData2Keyword
     {
 
         public PlotData(List<TestData> testData, Chart chart)
-        { 
+        {
+            chart.Series.Clear(); //ensure that the chart is empty
+            chart.Series.Add("Series0");
+            chart.Series[0].ChartType = SeriesChartType.Line;
+            chart.Legends.Clear();
+
+            foreach (TestData data in testData)
+            {
+                chart.Series[0].Points.AddXY(data.TensileStrain,data.TensileStress);
+            }
         
         }
 
