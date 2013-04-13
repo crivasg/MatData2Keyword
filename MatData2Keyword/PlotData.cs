@@ -12,12 +12,12 @@ namespace MatData2Keyword
     class PlotData
     {
 
-        public PlotData(List<TestData> testData, Chart chart, Headers headers)
+        public PlotData(List<TestData> testData, Chart chart, Headers headers, String chartLegend)
         {
             chart.Series.Clear(); //ensure that the chart is empty
-            chart.Series.Add("Series0");
+            chart.Series.Add(chartLegend);
             chart.Series[0].ChartType = SeriesChartType.Line;
-            chart.Legends.Clear();
+            //chart.Legends.Clear();
 
             chart.ChartAreas[0].AxisX.LabelStyle.Format = "{F2}";
             chart.ChartAreas[0].AxisY.LabelStyle.Format = "{F2}";

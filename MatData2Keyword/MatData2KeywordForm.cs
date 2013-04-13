@@ -59,7 +59,8 @@ namespace MatData2Keyword
                             Units = csvFile.SubHeaders
                         };
 
-                        PlotData plt = new PlotData(csvFile.Samples,matChart, chartHeaders);
+                        PlotData plt = new PlotData(csvFile.Samples,matChart, chartHeaders,
+                            Path.GetFileNameWithoutExtension(filename));
                     }
                 }
             }
