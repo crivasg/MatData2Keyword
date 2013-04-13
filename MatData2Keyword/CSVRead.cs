@@ -12,7 +12,6 @@ namespace MatData2Keyword
 
         public String[] Headers { private set; get; }
         public String[] SubHeaders { private set; get; }  // subheaders contains the units.
-        public double[,] Data { private set; get; }
         public int NumColumns { private set; get; }
         public int NumLines { private set; get; }
 
@@ -56,8 +55,6 @@ namespace MatData2Keyword
                 }
             }
 
-            // Init the data array.
-            this.Data = new double[this.NumLines, this.NumColumns];
             fileData.BaseStream.Seek(0,0);
 
             temp = fileData.ReadLine();
@@ -70,15 +67,18 @@ namespace MatData2Keyword
             {
                 temp = fileData.ReadLine();
                 aux = temp.Split(delimiterChars);
-                for (int j = 0; j < this.NumColumns; ++j )
+
+                TestData testData = new TestData
                 {
-                    double tmpDouble = 0.0;
-                    bool try2parse = double.TryParse(aux[j], out tmpDouble);
-                    if (try2parse)
-                    {
-                        this.Data[i, j] = tmpDouble;
-                    }
-                }
+                    Index = i,
+                    Time = double.Parse(aux[(int)TestDataIndices.Time]),
+                    Extension = double.Parse(aux[(int)TestDataIndices.Extension]),
+                    TensileExtension = double.Parse(aux[(int)TestDataIndices.TensileExtension]),
+                    Load = double.Parse(aux[(int)TestDataIndices.Load]),
+                    TensileStrain = double.Parse(aux[(int)TestDataIndices.TensileStrain]),
+                    TensileStress = double.Parse(aux[(int)TestDataIndices.TensileStress])
+                };
+
             }
             
 

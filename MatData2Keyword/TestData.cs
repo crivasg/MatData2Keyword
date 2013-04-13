@@ -5,8 +5,20 @@ using System.Text;
 
 namespace MatData2Keyword
 {
+
+    enum TestDataIndices
+    {
+        Time = 0,
+        Extension,
+        TensileExtension,
+        Load,
+        TensileStrain,
+        TensileStress
+    };
+    
     class TestData
     {
+
         public int Index { get; set; }
         public double Time { get; set; }
         public double Extension { get; set; }
