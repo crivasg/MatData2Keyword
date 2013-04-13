@@ -8,7 +8,7 @@ namespace MatData2Keyword
 {
     class CSVRead
     {
-        public List<TestData> testSamples { private set; get ;}
+        public List<TestData> Samples { private set; get ;}
 
         public String[] Headers { private set; get; }
         public String[] SubHeaders { private set; get; }  // subheaders contains the units.
@@ -19,7 +19,7 @@ namespace MatData2Keyword
 
         public CSVRead(StreamReader fileData)
         {
-            testSamples = new List<TestData>();
+            Samples = new List<TestData>();
 
             this.NumColumns = 0;
             this.NumLines = 0;
@@ -79,7 +79,7 @@ namespace MatData2Keyword
                     TensileStress = double.Parse(aux[(int)TestDataIndices.TensileStress])
                 };
 
-                testSamples.Add(testData);
+                Samples.Add(testData);
 
             }
             
