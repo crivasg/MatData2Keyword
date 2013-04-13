@@ -79,6 +79,8 @@ namespace MatData2Keyword
                     TensileStress = double.Parse(aux[(int)TestDataIndices.TensileStress])
                 };
 
+                testSamples.Add(testData);
+
             }
             
 
