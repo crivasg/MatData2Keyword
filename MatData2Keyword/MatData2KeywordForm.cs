@@ -20,5 +20,13 @@ namespace MatData2Keyword
         {
             Application.Exit();
         }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(csvImportFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
     }
 }

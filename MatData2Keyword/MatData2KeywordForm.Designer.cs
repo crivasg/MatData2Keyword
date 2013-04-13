@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatData2KeywordForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +65,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.matChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.csvImportFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.matChart)).BeginInit();
@@ -319,16 +320,16 @@
             // 
             // matChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.matChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.matChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.matChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.matChart.Legends.Add(legend3);
             this.matChart.Location = new System.Drawing.Point(6, 10);
             this.matChart.Name = "matChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.matChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.matChart.Series.Add(series3);
             this.matChart.Size = new System.Drawing.Size(810, 462);
             this.matChart.TabIndex = 0;
             this.matChart.Text = "chart1";
@@ -339,6 +340,12 @@
             this.importToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.importToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.importToolStripMenuItem.Text = "&Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            // 
+            // csvImportFileDialog
+            // 
+            this.csvImportFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
+            this.csvImportFileDialog.Multiselect = true;
             // 
             // MatData2KeywordForm
             // 
@@ -394,6 +401,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart matChart;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog csvImportFileDialog;
     }
 }
 
