@@ -14,7 +14,9 @@ namespace MatData2Keyword
 
         public PlotData(List<TestData> testData, Chart chart, Headers headers, String chartLegend)
         {
-            chart.Series.Clear(); //ensure that the chart is empty
+            chart.Visible = true;
+
+            //chart.Series.Clear(); //ensure that the chart is empty
             chart.Series.Add(chartLegend);
             chart.Series[0].ChartType = SeriesChartType.Line;
             //chart.Legends.Clear();

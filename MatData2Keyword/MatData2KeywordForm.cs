@@ -18,6 +18,8 @@ namespace MatData2Keyword
         public MatData2KeywordForm()
         {
             InitializeComponent();
+            ChartInit();
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +40,18 @@ namespace MatData2Keyword
                 }
                 
             }
+        }
+
+        private void ChartInit()
+        {
+            matChart.Visible = false;
+            
+        }
+
+
+        private void ChartReset()
+        {
+            matChart.Series.Clear();
         }
 
         private void OpenAndReadFile(String filename)
