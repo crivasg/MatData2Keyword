@@ -52,7 +52,14 @@ namespace MatData2Keyword
                     {
                         CSVRead csvFile = new CSVRead(fileData);
                         fileData.Close();
-                        PlotData plt = new PlotData(csvFile.Samples,matChart);
+
+                        Headers chartHeaders = new Headers()
+                        {
+                            Titles = csvFile.Headers,
+                            Units = csvFile.SubHeaders
+                        };
+
+                        PlotData plt = new PlotData(csvFile.Samples,matChart, chartHeaders);
                     }
                 }
             }

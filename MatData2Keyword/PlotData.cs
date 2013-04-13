@@ -12,7 +12,7 @@ namespace MatData2Keyword
     class PlotData
     {
 
-        public PlotData(List<TestData> testData, Chart chart)
+        public PlotData(List<TestData> testData, Chart chart, Headers headers)
         {
             chart.Series.Clear(); //ensure that the chart is empty
             chart.Series.Add("Series0");
@@ -22,6 +22,10 @@ namespace MatData2Keyword
             chart.ChartAreas[0].AxisX.LabelStyle.Format = "{F2}";
             chart.ChartAreas[0].AxisY.LabelStyle.Format = "{F2}";
             chart.ChartAreas[0].AxisY.Minimum = 0.0;
+
+            chart.ChartAreas[0].AxisX.Title = headers[TestDataIndices.TensileStrain];
+            chart.ChartAreas[0].AxisY.Title = headers[TestDataIndices.TensileStress];
+
 
             foreach (TestData data in testData)
             {
