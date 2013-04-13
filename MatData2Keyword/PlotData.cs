@@ -19,6 +19,10 @@ namespace MatData2Keyword
             chart.Series[0].ChartType = SeriesChartType.Line;
             chart.Legends.Clear();
 
+            chart.ChartAreas[0].AxisX.LabelStyle.Format = "{F2}";
+            chart.ChartAreas[0].AxisY.LabelStyle.Format = "{F2}";
+            chart.ChartAreas[0].AxisY.Minimum = 0.0;
+
             foreach (TestData data in testData)
             {
                 chart.Series[0].Points.AddXY(data.TensileStrain,data.TensileStress);
