@@ -13,7 +13,7 @@ namespace MatData2Keyword
     public partial class MatData2KeywordForm : Form
     {
 
-        Stream fileData = null;
+        StreamReader fileData = null;
 
         public MatData2KeywordForm()
         {
@@ -33,6 +33,7 @@ namespace MatData2Keyword
 
                 foreach (String filename in csvImportFileDialog.FileNames)
                 {
+                   
                     OpenAndReadFile(filename);
                 }
                 
@@ -43,7 +44,26 @@ namespace MatData2Keyword
         {
             fileData = null;
 
-            fileData = null;
+            try
+            {
+                if(  (fileData = File.OpenText(filename)) != null )
+                {
+                    using(fileData)
+                    {
+
+                        fileData.Close(); 
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+
+            }
+            finally
+            {
+                fileData = null;
+            }
+            
         }
     }
 }
