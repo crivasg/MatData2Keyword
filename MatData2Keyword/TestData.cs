@@ -15,6 +15,16 @@ namespace MatData2Keyword
         TensileStrain,
         TensileStress
     };
+
+    enum TestDataColumns
+    {
+        Time = "Time",
+        Extension = "Extension",
+        TensileExtension = "Tensile Extension",
+        Load = "Load",
+        TensileStrain = " Tensile Strain",
+        TensileStress = " Tensile Stress"
+    };
     
     class TestData
     {
