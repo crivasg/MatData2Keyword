@@ -16,9 +16,11 @@ namespace MatData2Keyword
         {
             chart.Visible = true;
 
+            int series = chart.Series.Count;
+
             //chart.Series.Clear(); //ensure that the chart is empty
             chart.Series.Add(chartLegend);
-            chart.Series[0].ChartType = SeriesChartType.Line;
+            chart.Series[series].ChartType = SeriesChartType.Line;
             //chart.Legends.Clear();
 
             chart.ChartAreas[0].AxisX.LabelStyle.Format = "{F2}";
@@ -28,10 +30,11 @@ namespace MatData2Keyword
             chart.ChartAreas[0].AxisX.Title = headers[TestDataIndices.TensileStrain];
             chart.ChartAreas[0].AxisY.Title = headers[TestDataIndices.TensileStress];
 
+            
 
             foreach (TestData data in testData)
             {
-                chart.Series[0].Points.AddXY(data.TensileStrain,data.TensileStress);
+                chart.Series[series].Points.AddXY(data.TensileStrain, data.TensileStress);
             }
         
         }

@@ -45,6 +45,7 @@ namespace MatData2Keyword
         private void ChartInit()
         {
             matChart.Visible = false;
+            matChart.Series.Clear();
             
         }
 
