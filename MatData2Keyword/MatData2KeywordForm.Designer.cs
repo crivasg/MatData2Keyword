@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatData2KeywordForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -331,16 +331,16 @@
             // 
             // matChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.matChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.matChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.matChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.matChart.Legends.Add(legend2);
             this.matChart.Location = new System.Drawing.Point(6, 10);
             this.matChart.Name = "matChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.matChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.matChart.Series.Add(series2);
             this.matChart.Size = new System.Drawing.Size(810, 462);
             this.matChart.TabIndex = 0;
             this.matChart.Text = "chart1";
@@ -355,6 +355,7 @@
             this.processStripMenuItem.Name = "processStripMenuItem";
             this.processStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.processStripMenuItem.Text = "Process";
+            this.processStripMenuItem.Click += new System.EventHandler(this.processStripMenuItem_Click);
             // 
             // MatData2KeywordForm
             // 

@@ -82,9 +82,20 @@ namespace MatData2Keyword
             
         }
 
+
+        private void ProcessDataFromChart()
+        { 
+        
+        }
+
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChartReset();
+        }
+
+        private void processStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProcessDataFromChart();
         }
     }
 }
