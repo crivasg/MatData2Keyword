@@ -15,7 +15,7 @@ namespace MatData2Keyword
         {
             get
             {
-                if (String.IsNullOrEmpty(this.Units[(int)index]))
+                if (this.Units.Length == 0 )
                 {
                     return String.Copy(this.Titles[(int)index]);   
                 }
