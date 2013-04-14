@@ -21,6 +21,7 @@ namespace MatData2Keyword
             //chart.Series.Clear(); //ensure that the chart is empty
             chart.Series.Add(chartLegend);
             chart.Series[series].ChartType = SeriesChartType.Line;
+            chart.Series[series].BorderWidth = 3;
             //chart.Legends.Clear();
 
             chart.ChartAreas[0].AxisX.LabelStyle.Format = "{F2}";
@@ -33,11 +34,6 @@ namespace MatData2Keyword
             foreach (TestData data in testData)
             {
                 chart.Series[series].Points.AddXY(data.TensileStrain, data.TensileStress);
-            }
-
-            foreach (Legend leg in chart.Legends)
-            { 
-                
             }
         
         }
