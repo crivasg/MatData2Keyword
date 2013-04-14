@@ -63,14 +63,19 @@ namespace MatData2Keyword
                 temp = fileData.ReadLine();
             }
 
-            for ( int i = 0 ; i < this.NumLines ; ++i )
+            int i = 0;
+            while ((temp = fileData.ReadLine()) != null)
             {
-                temp = fileData.ReadLine();
+                //temp = fileData.ReadLine();
+                if (temp.Length == 0) 
+                {
+                    continue;
+                }
                 aux = temp.Split(delimiterChars);
 
                 TestData testData = new TestData
                 {
-                    Index = i,
+                    Index = i++,
                     Time = double.Parse(aux[(int)TestDataIndices.Time]),
                     Extension = double.Parse(aux[(int)TestDataIndices.Extension]),
                     TensileExtension = double.Parse(aux[(int)TestDataIndices.TensileExtension]),
