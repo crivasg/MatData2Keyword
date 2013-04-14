@@ -18,7 +18,7 @@ namespace MatData2Keyword
         public MatData2KeywordForm()
         {
             InitializeComponent();
-            ChartInit();
+            ChartReset();
 
         }
 
@@ -41,14 +41,6 @@ namespace MatData2Keyword
                 
             }
         }
-
-        private void ChartInit()
-        {
-            matChart.Visible = false;
-            matChart.Series.Clear();
-            
-        }
-
 
         private void ChartReset()
         {
@@ -88,6 +80,11 @@ namespace MatData2Keyword
                 fileData = null;
             }
             
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChartReset();
         }
     }
 }

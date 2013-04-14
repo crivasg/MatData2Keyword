@@ -30,11 +30,14 @@ namespace MatData2Keyword
             chart.ChartAreas[0].AxisX.Title = headers[TestDataIndices.TensileStrain];
             chart.ChartAreas[0].AxisY.Title = headers[TestDataIndices.TensileStress];
 
-            
-
             foreach (TestData data in testData)
             {
                 chart.Series[series].Points.AddXY(data.TensileStrain, data.TensileStress);
+            }
+
+            foreach (Legend leg in chart.Legends)
+            { 
+                
             }
         
         }
