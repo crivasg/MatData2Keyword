@@ -14,9 +14,16 @@ namespace MatData2Keyword
     class ProcessData
     {
 
-        public ProcessData( Chart chart)
-        { 
-        
+        public ProcessData( Chart chart )
+        {
+            foreach (Series s in chart.Series)
+            {
+                
+                foreach(DataPoint point in s.Points)
+                {
+                }
+               
+            }
         }
 
     }

@@ -58,6 +58,7 @@
       <DependentUpon>MatData2KeywordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PlotData.cs" />
+    <Compile Include="ProcessData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MatData2KeywordForm.resx">
