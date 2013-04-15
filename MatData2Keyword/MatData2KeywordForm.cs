@@ -86,6 +86,13 @@ namespace MatData2Keyword
         private void ProcessDataFromChart()
         { 
         
+            if(matChart.Series.Count == 0)
+            {
+                MessageBox.Show(@"No data in memory. Please, Import some test data");
+                return;
+            }
+            ProcessData process = new ProcessData(matChart);
+
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
