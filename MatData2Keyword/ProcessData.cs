@@ -19,9 +19,9 @@ namespace MatData2Keyword
             foreach (Series s in chart.Series)
             {
                 
-                foreach(DataPoint point in s.Points)
-                {
-                }
+                //foreach(DataPoint point in s.Points)
+                //{
+                //}
                
             }
         }
