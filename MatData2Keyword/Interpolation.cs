@@ -54,18 +54,26 @@ namespace MatData2Keyword
             // ASSUME: the graph always groups.
             pts = series.Points.Where(p => p.XValue < xValue).OrderByDescending(p => p.XValue).Take(1);
 
-            DataPoint pointN1, pointN2;
+            DataPoint pointN1 = null;
+            DataPoint pointN2 = null;
+
             foreach (DataPoint point in pts)
             {
                 pointN1 = point;
             }
 
-            pts = series.Points.Where(p => p.XValue < xValue).OrderBy(p => p.XValue).Take(1);
+            pts = series.Points.Where(p => p.XValue > xValue).OrderBy(p => p.XValue).Take(1);
             foreach (DataPoint point in pts)
             {
                 pointN2 = point;
-            }            
+            }
 
+            double x1x0 = pointN2.XValue - pointN1.XValue;
+            double xx0 = xValue - pointN1.XValue;
+            double y1y0 = pointN2.YValues[0] - pointN1.YValues[0];
+
+            // http://en.wikipedia.org/wiki/Linear_interpolation
+            yValue = pointN1.YValues[0] + (y1y0) * (xx0 / x1x0);
 
             return yValue;
         }
