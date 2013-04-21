@@ -123,6 +123,10 @@ namespace MatData2Keyword
                     yMax = maxDataPointY.YValues[0];
                 }
 
+                double yy = Interpolation.Linear(s,100.0);
+                yy = Interpolation.Linear(s, -100.0);
+                yy = Interpolation.Linear(s, 0.001);
+
             }
 
             MessageBox.Show(String.Format(@"{0} {1}",xMax,yMax));
