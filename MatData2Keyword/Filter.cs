@@ -22,7 +22,8 @@ namespace MatData2Keyword
 
             double prvValue = double.MinValue;
 
-            foreach (TestData data in this.Input)
+            // removes the negative value of the stain data using a cool Linq query
+            foreach (TestData data in this.Input.Where(p => p[this.Index] > 0.0))
             {
                 if(data[this.Index] > prvValue)
                 {
