@@ -76,7 +76,7 @@ namespace MatData2Keyword
                         };
                         xFilter.Run();
 
-                        PlotData plt = new PlotData(csvFile.Samples,matChart, chartHeaders,
+                        PlotData plt = new PlotData(xFilter.Output,matChart, chartHeaders,
                             Path.GetFileNameWithoutExtension(filename));
                     }
                 }
