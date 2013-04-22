@@ -18,8 +18,18 @@ namespace MatData2Keyword
         }
 
         public void Run()
-        { 
-        
+        {
+
+            double prvValue = double.MinValue;
+
+            foreach (TestData data in this.Input)
+            {
+                if(data[this.Index] > prvValue)
+                {
+                    prvValue = data[this.Index];
+                    this.Output.Add(data);
+                }
+            }
         }
 
     }
