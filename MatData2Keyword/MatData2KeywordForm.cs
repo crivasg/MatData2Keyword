@@ -69,6 +69,13 @@ namespace MatData2Keyword
                             Units = csvFile.SubHeaders
                         };
 
+                        Filter xFilter = new Filter()
+                        {
+                            Input = csvFile.Samples,
+                            Index = TestDataIndices.TensileStrain
+                        };
+                        xFilter.Run();
+
                         PlotData plt = new PlotData(csvFile.Samples,matChart, chartHeaders,
                             Path.GetFileNameWithoutExtension(filename));
                     }
