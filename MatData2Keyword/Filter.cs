@@ -32,5 +32,24 @@ namespace MatData2Keyword
             }
         }
 
+        public void LevelIfLess(TestDataIndices index)
+        {
+            double prvValue = double.MinValue;
+
+            foreach (TestData data in this.Input)
+            {
+                if (data[index] > prvValue)
+                {
+                    this.Output.Add(data);
+                    prvValue = data[index];
+                }
+                else
+                {
+                    
+                }
+            
+            }
+        }
+
     }
 }
