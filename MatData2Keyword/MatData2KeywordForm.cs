@@ -72,9 +72,8 @@ namespace MatData2Keyword
                         Filter xFilter = new Filter()
                         {
                             Input = csvFile.Samples,
-                            Index = TestDataIndices.TensileStrain
                         };
-                        xFilter.Run();
+                        xFilter.SkipIfLess(TestDataIndices.TensileStrain);
 
                         PlotData plt = new PlotData(xFilter.Output,matChart, chartHeaders,
                             Path.GetFileNameWithoutExtension(filename));
