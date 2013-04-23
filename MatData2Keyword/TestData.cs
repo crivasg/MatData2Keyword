@@ -58,6 +58,33 @@ namespace MatData2Keyword
                 return v;
             }
 
+            set
+            {
+                switch (index)
+                {
+                    case TestDataIndices.Time:
+                        this.Time = value; ;
+                        break;
+                    case TestDataIndices.Extension:
+                        this.Extension = value;
+                        break;
+                    case TestDataIndices.TensileExtension:
+                        this.TensileExtension = value;
+                        break;
+                    case TestDataIndices.Load:
+                        this.Load = value;
+                        break;
+                    case TestDataIndices.TensileStrain:
+                        this.TensileStrain = value;
+                        break;
+                    case TestDataIndices.TensileStress:
+                        this.TensileStress = value;
+                        break;
+                    default:
+                        break;
+                }            
+            }
+
         }
 
     }
