@@ -40,13 +40,13 @@ namespace MatData2Keyword
             {
                 if (data[index] > prvValue)
                 {
-                    this.Output.Add(data);
                     prvValue = data[index];
                 }
                 else
                 {
-                    
+                    data[index] = prvValue;
                 }
+                this.Output.Add(data);
             
             }
         }
