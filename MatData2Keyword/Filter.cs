@@ -18,7 +18,7 @@ namespace MatData2Keyword
 
         public void SkipIfLess(TestDataIndices index)
         {
-
+            this.Output.Clear();
             double prvValue = double.MinValue;
 
             // removes the negative value of the stain data using a cool Linq query
@@ -34,6 +34,7 @@ namespace MatData2Keyword
 
         public void LevelIfLess(TestDataIndices index)
         {
+            this.Output.Clear();
             double prvValue = double.MinValue;
 
             foreach (TestData data in this.Input)
@@ -41,13 +42,14 @@ namespace MatData2Keyword
                 if (data[index] > prvValue)
                 {
                     prvValue = data[index];
+                    this.Output.Add(data);
                 }
                 else
                 {
-                    data[index] = prvValue;
+                    TestData tmpData = data;
+                    tmpData[index] = prvValue;
+                    this.Output.Add(tmpData);
                 }
-                this.Output.Add(data);
-            
             }
         }
 
