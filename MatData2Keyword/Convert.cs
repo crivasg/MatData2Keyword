@@ -7,12 +7,12 @@ namespace MatData2Keyword
 {
     class Convert
     {
-        public List<TestData> EngineeringData { set; private get; }
-        public List<TestData> TrueData { private set; get; }
+        public List<StressStrian> EngineeringData { set; private get; }
+        public List<StressStrian> TrueData { private set; get; }
 
         public Convert()
         {
-            this.TrueData = new List<TestData>();
+            this.TrueData = new List<StressStrian>();
         }
 
         public void Run()
