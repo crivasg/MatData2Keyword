@@ -16,14 +16,6 @@ namespace MatData2Keyword
 
         public ProcessData( Chart chart )
         {
-            foreach (Series s in chart.Series)
-            {
-                
-                //foreach(DataPoint point in s.Points)
-                //{
-                //}
-               
-            }
         }
 
     }
