@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convert.cs" />
     <Compile Include="CSVRead.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="Headers.cs" />
