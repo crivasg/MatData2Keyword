@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MatData2Keyword
 {
-    class StressStrian
+    class StressStrain
     {
         public double Strain { get; set; }
         public double Stress { get; set; }
@@ -25,7 +25,7 @@ namespace MatData2Keyword
             }
         }
 
-        public StressStrian()
+        public StressStrain()
         { 
         
         }
