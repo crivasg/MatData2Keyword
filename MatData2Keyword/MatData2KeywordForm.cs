@@ -76,8 +76,8 @@ namespace MatData2Keyword
                         };
                         xFilter.SkipIfLess(TestDataIndices.TensileStrain);
                         List<TestData> tmpList = new List<TestData>(xFilter.Output);
-                        xFilter.Input = tmpList;
-                        xFilter.LevelIfLess(TestDataIndices.TensileStress);
+                        //xFilter.Input = tmpList;
+                        //xFilter.LevelIfLess(TestDataIndices.TensileStress);
 
                         PlotData plt = new PlotData(xFilter.Output,matChart, chartHeaders,
                             Path.GetFileNameWithoutExtension(filename));
