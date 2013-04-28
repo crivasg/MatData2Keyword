@@ -15,6 +15,8 @@ namespace MatData2Keyword
 {
     public partial class MatData2KeywordForm : Form
     {
+        private double xMax = double.MinValue;
+        private double yMax = double.MinValue;
 
         StreamReader fileData = null;
 
@@ -117,22 +119,22 @@ namespace MatData2Keyword
         /// </summary>
         private void GetMaxValuesFromChart()
         {
-            double xMax = double.MinValue;
-            double yMax = double.MinValue;
+            //double xMax = double.MinValue;
+            //double yMax = double.MinValue;
 
             foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
             {
                 DataPoint maxDataPointX = s.Points.FindMaxByValue("X");
                 DataPoint maxDataPointY = s.Points.FindMaxByValue("Y");
 
-                if (maxDataPointX.XValue.CompareTo(xMax) > 0 )
+                if (maxDataPointX.XValue.CompareTo(this.xMax) > 0 )
                 {
-                    xMax = maxDataPointX.XValue;
+                    this.xMax = maxDataPointX.XValue;
                 }
 
-                if (maxDataPointY.YValues[0].CompareTo(yMax) > 0 )
+                if (maxDataPointY.YValues[0].CompareTo(this.yMax) > 0 )
                 {
-                    yMax = maxDataPointY.YValues[0];
+                    this.yMax = maxDataPointY.YValues[0];
                 }
 
                 //double yy = Interpolation.Linear(s,100.0);
