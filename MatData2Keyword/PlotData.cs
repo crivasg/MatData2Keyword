@@ -14,6 +14,12 @@ namespace MatData2Keyword
 
         public PlotData(List<TestData> testData, Chart chart, Headers headers, String chartLegend)
         {
+            // If the legend alread exists on the chart, skip it.
+            foreach (Series s in chart.Series.Where(s => s.Name.ToUpper() == chartLegend.ToUpper()))
+            {
+                return;
+            }
+
             chart.Visible = true;
 
             int series = chart.Series.Count;
