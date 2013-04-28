@@ -208,7 +208,37 @@ namespace MatData2Keyword
                 pointCount.Add(s.Points.Count);
             }
 
-            numOfPoints = pointCount.Max();
+            numOfPoints = 40;
+            double delta = this.xMax/(double)numOfPoints;
+
+            List<double> strainData = new List<double>();
+            List<double> stressData = new List<double>();
+
+            for (int i = 0; i <= numOfPoints; i++)
+            {
+                double strainTemp = Math.Round(delta * i, 5);
+                List<double> stressTemp = new List<double>();
+                strainData.Add(strainTemp);
+                foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
+                {
+                    double yy = Interpolation.Linear(s, strainTemp);
+                    stressTemp.Add(yy);
+                }
+                stressData.Add(stressTemp.Max());
+            }
+
+            int series = matChart.Series.Count;
+
+            matChart.Series.Add(@"XXXXX");
+            matChart.Series[series].ChartType = SeriesChartType.Line;
+            matChart.Series[series].BorderWidth = 5;
+            matChart.Series[series].Color = Color.Black;
+
+            for (int i = 0; i <= numOfPoints; i++)
+            {
+                matChart.Series[series].Points.AddXY(strainData[i], stressData[i]);
+            }
+
         
         }
 
