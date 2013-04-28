@@ -121,8 +121,6 @@ namespace MatData2Keyword
         /// </summary>
         private void GetMaxValuesFromChart()
         {
-            //double xMax = double.MinValue;
-            //double yMax = double.MinValue;
 
             foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
             {
@@ -139,13 +137,7 @@ namespace MatData2Keyword
                     this.yMax = maxDataPointY.YValues[0];
                 }
 
-                //double yy = Interpolation.Linear(s,100.0);
-                //yy = Interpolation.Linear(s, -100.0);
-                //yy = Interpolation.Linear(s, 0.001);
-
             }
-
-            //MessageBox.Show(String.Format(@"{0} {1}",xMax,yMax));
         }
 
         private void AddTwoPercentOffset()
