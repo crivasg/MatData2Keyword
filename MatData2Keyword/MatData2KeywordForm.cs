@@ -145,6 +145,14 @@ namespace MatData2Keyword
         private void AddTwoPercentOffset()
         {
 
+            foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() == @"2% OFFSET"))
+            {
+                //MessageBox.Show(@"Already of the chart! :P");
+                // the 2% offset series already exists, returning.
+                return;
+            }
+
+
             int series = matChart.Series.Count;
 
             matChart.Series.Add(@"2% Offset");
