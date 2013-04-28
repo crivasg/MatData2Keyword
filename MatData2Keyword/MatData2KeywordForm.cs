@@ -107,6 +107,9 @@ namespace MatData2Keyword
                 return;
             }
 
+            this.xMax = double.MinValue;
+            this.yMax = double.MinValue;
+
             GetTrueStrainTrueStress();
 
             GetMaxValuesFromChart();
