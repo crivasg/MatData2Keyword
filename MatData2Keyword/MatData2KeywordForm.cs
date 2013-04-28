@@ -112,7 +112,9 @@ namespace MatData2Keyword
             this.yMax = double.MinValue;
 
             GetMaxValuesFromChart();
-            GetTrueStrainTrueStress();
+            //GetTrueStrainTrueStress();
+
+            DataPoint dp = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
 
             ProcessData process = new ProcessData(matChart);
         }
