@@ -14,6 +14,19 @@ namespace MatData2Keyword
         {
             DataPoint dataPoint = null;
 
+            // where the series 2 is greater than series1
+
+            foreach (DataPoint dp in series1.Points)
+            {
+                double yy = Interpolation.Linear(series2, dp.XValue);
+
+                if (yy > dp.YValues[0])
+                {
+                    dataPoint = dp;
+                    break;
+                }
+                
+            }
 
 
             return dataPoint;
