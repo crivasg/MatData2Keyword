@@ -41,7 +41,8 @@ namespace MatData2Keyword
                    
                     OpenAndReadFile(filename);
                 }
-                
+
+                this.AddTwoPercentOffset();
             }
         }
 
@@ -139,6 +140,21 @@ namespace MatData2Keyword
             }
 
             MessageBox.Show(String.Format(@"{0} {1}",xMax,yMax));
+        }
+
+        private void AddTwoPercentOffset()
+        {
+
+            int series = matChart.Series.Count;
+
+            matChart.Series.Add(@"2% Offset");
+            matChart.Series[series].ChartType = SeriesChartType.Line;
+            matChart.Series[series].BorderWidth = 1;
+            matChart.Series[series].Color = Color.Black;
+
+            matChart.Series[series].Points.AddXY(0.2 / 100.0, 0.0);
+            matChart.Series[series].Points.AddXY(0.35 / 100.0, 210.0E3*0.15 / 100.0);
+        
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
