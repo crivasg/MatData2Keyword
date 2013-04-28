@@ -54,6 +54,7 @@
     <Compile Include="Filter.cs" />
     <Compile Include="Headers.cs" />
     <Compile Include="Interpolation.cs" />
+    <Compile Include="Intersection.cs" />
     <Compile Include="MatData2KeywordForm.cs">
       <SubType>Form</SubType>
     </Compile>
