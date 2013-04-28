@@ -46,9 +46,8 @@ namespace MatData2Keyword
                 }
                 else
                 {
-                    TestData tmpData = data;
-                    tmpData[index] = prvValue;
-                    this.Output.Add(tmpData);
+                    data[index] = prvValue;
+                    this.Output.Add(data);
                 }
             }
         }
