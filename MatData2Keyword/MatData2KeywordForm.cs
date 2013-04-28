@@ -110,9 +110,8 @@ namespace MatData2Keyword
             this.xMax = double.MinValue;
             this.yMax = double.MinValue;
 
-            GetTrueStrainTrueStress();
-
             GetMaxValuesFromChart();
+            GetTrueStrainTrueStress();
 
             ProcessData process = new ProcessData(matChart);
         }
