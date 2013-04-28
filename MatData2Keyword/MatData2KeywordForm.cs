@@ -105,6 +105,8 @@ namespace MatData2Keyword
                 return;
             }
 
+            GetTrueStrainTrueStress();
+
             GetMaxValuesFromChart();
 
             ProcessData process = new ProcessData(matChart);
@@ -163,6 +165,31 @@ namespace MatData2Keyword
             matChart.Series[series].Points.AddXY(0.2 / 100.0, 0.0);
             matChart.Series[series].Points.AddXY(0.35 / 100.0, 210.0E3*0.15 / 100.0);
         
+        }
+
+        private void GetTrueStrainTrueStress()
+        {
+            
+            List<StressStrain> ss = new List<StressStrain>();
+            Series s = matChart.Series[0];
+
+            foreach(DataPoint point in s.Points)
+            {
+                ss.Add(new StressStrain { Strain = point.XValue, Stress = point.YValues[0] });
+            }
+
+            int series = matChart.Series.Count;
+
+            matChart.Series.Add(@"True Strain True Stress");
+            matChart.Series[series].ChartType = SeriesChartType.Line;
+            matChart.Series[series].BorderWidth = 5;
+            matChart.Series[series].Color = Color.Black;
+
+            foreach (StressStrain xy in ss)
+            {
+                matChart.Series[series].Points.AddXY(xy.TrueStrain, xy.TrueStress);
+            }
+            
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
