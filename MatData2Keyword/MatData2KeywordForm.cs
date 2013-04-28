@@ -112,6 +112,7 @@ namespace MatData2Keyword
             this.yMax = double.MinValue;
 
             GetMaxValuesFromChart();
+            GetResultingCurveFromData();
             //GetTrueStrainTrueStress();
 
             DataPoint dp = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
@@ -199,12 +200,15 @@ namespace MatData2Keyword
 
         private void GetResultingCurveFromData()
         {
-            int numOfPoints = 0;
+            int numOfPoints = int.MinValue;
+            List<int> pointCount = new List<int>();
 
             foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
             {
+                pointCount.Add(s.Points.Count);
             }
 
+            numOfPoints = pointCount.Max();
         
         }
 
