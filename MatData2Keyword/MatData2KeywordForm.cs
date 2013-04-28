@@ -118,7 +118,7 @@ namespace MatData2Keyword
             double xMax = double.MinValue;
             double yMax = double.MinValue;
 
-            foreach (Series s in matChart.Series)
+            foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
             {
                 DataPoint maxDataPointX = s.Points.FindMaxByValue("X");
                 DataPoint maxDataPointY = s.Points.FindMaxByValue("Y");
