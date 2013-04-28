@@ -17,6 +17,7 @@ namespace MatData2Keyword
     {
         private double xMax = double.MinValue;
         private double yMax = double.MinValue;
+        private int numberOfDataPoints = 40;
 
         StreamReader fileData = null;
 
@@ -150,7 +151,6 @@ namespace MatData2Keyword
                 return;
             }
 
-
             int series = matChart.Series.Count;
 
             matChart.Series.Add(@"2% Offset");
@@ -158,8 +158,15 @@ namespace MatData2Keyword
             matChart.Series[series].BorderWidth = 1;
             matChart.Series[series].Color = Color.Black;
 
-            matChart.Series[series].Points.AddXY(0.2 / 100.0, 0.0);
-            matChart.Series[series].Points.AddXY(0.35 / 100.0, 210.0E3*0.15 / 100.0);
+            double epsilon_start = 0.2, epsilon_end = 0.4;
+            double delta = (epsilon_end - epsilon_start) / this.numberOfDataPoints;
+
+            for (int i = 0; i < this.numberOfDataPoints; i++)
+            {
+                double xv = epsilon_start + i * delta;
+
+                matChart.Series[series].Points.AddXY(xv / 100.0, 210.0E3 * (xv - epsilon_start) / 100.0);   
+            }
         
         }
 
