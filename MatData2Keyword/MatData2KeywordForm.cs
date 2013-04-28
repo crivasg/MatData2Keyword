@@ -192,6 +192,17 @@ namespace MatData2Keyword
             
         }
 
+        private void GetResultingCurveFromData()
+        {
+            int numOfPoints = 0;
+
+            foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
+            {
+            }
+
+        
+        }
+
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChartReset();
