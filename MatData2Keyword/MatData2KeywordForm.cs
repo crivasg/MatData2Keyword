@@ -119,11 +119,11 @@ namespace MatData2Keyword
             // http://www.51aspx.com/CodeFile/MSChartControlsSamples/ChartFeatures/Annotations/AnnotationStyles/AnnotationStyles.aspx.cs.html
             TextAnnotation annotation = new TextAnnotation();
             annotation.AnchorDataPoint = matChart.Series[0].Points.Where(p => p.XValue == dp.XValue).First();
-            annotation.Text = "I am a TextAnnotation";
+            annotation.Text = String.Format(@"Strain: {0:P3} mm/mm Stress:: {1:N2} MPa", dp.XValue, dp.YValues[0]);
             annotation.ForeColor = Color.Black; 
             annotation.Font = new Font("Arial", 12);
 
-            MessageBox.Show(String.Format(@"{0} {1}", dp.XValue, dp.YValues[0]));
+            //MessageBox.Show(String.Format(@"{0} {1}", dp.XValue, dp.YValues[0]));
 
             matChart.Annotations.Add(annotation); ProcessData process = new ProcessData(matChart);
         }
