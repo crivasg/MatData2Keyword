@@ -116,11 +116,11 @@ namespace MatData2Keyword
             DataPoint dp = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
 
             // Draw a text anotation in the MS chart.
-            // http://www.51aspx.com/CodeFile/MSChartControlsSamples/ChartFeatures/Annotations/AnnotationStyles/AnnotationStyles.aspx.cs.html
-            TextAnnotation annotation = new TextAnnotation();
+            TextAnnotation annotation = new CalloutAnnotation();
             annotation.AnchorDataPoint = matChart.Series[0].Points.Where(p => p.XValue == dp.XValue).First();
-            annotation.Text = String.Format(@"Strain: {0:P3} mm/mm Stress:: {1:N2} MPa", dp.XValue, dp.YValues[0]);
-            annotation.ForeColor = Color.Black; 
+            annotation.Text = String.Format(@"Strain: {0:P3} Stress:: {1:N2} MPa", dp.XValue, dp.YValues[0]);
+            annotation.ForeColor = Color.Black;
+            annotation.BackColor = Color.White;
             annotation.Font = new Font("Arial", 12);
 
             //MessageBox.Show(String.Format(@"{0} {1}", dp.XValue, dp.YValues[0]));
