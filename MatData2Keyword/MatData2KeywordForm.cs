@@ -118,7 +118,7 @@ namespace MatData2Keyword
             // Draw a text anotation in the MS chart.
             TextAnnotation annotation = new CalloutAnnotation();
             annotation.AnchorDataPoint = matChart.Series[0].Points.Where(p => p.XValue == dp.XValue).First();
-            annotation.Text = String.Format(@"Strain: {0:P3} Stress:: {1:N2} MPa", dp.XValue, dp.YValues[0]);
+            annotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dp.XValue, dp.YValues[0]);
             annotation.ForeColor = Color.Black;
             annotation.BackColor = Color.White;
             annotation.Font = new Font("Arial", 12);
