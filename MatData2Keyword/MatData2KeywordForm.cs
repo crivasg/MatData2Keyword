@@ -115,7 +115,17 @@ namespace MatData2Keyword
 
             DataPoint dp = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
 
-            ProcessData process = new ProcessData(matChart);
+            // Draw a text anotation in the MS chart.
+            // http://www.51aspx.com/CodeFile/MSChartControlsSamples/ChartFeatures/Annotations/AnnotationStyles/AnnotationStyles.aspx.cs.html
+            TextAnnotation annotation = new TextAnnotation();
+            annotation.AnchorDataPoint = matChart.Series[0].Points.Where(p => p.XValue == dp.XValue).First();
+            annotation.Text = "I am a TextAnnotation";
+            annotation.ForeColor = Color.Black; 
+            annotation.Font = new Font("Arial", 12);
+
+            MessageBox.Show(String.Format(@"{0} {1}", dp.XValue, dp.YValues[0]));
+
+            matChart.Annotations.Add(annotation); ProcessData process = new ProcessData(matChart);
         }
 
         /// <summary>
