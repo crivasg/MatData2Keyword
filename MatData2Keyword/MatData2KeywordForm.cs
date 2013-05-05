@@ -95,6 +95,8 @@ namespace MatData2Keyword
             {
                 fileData = null;
             }
+
+            GetMaxValuesFromChart();
             
         }
 
@@ -108,10 +110,7 @@ namespace MatData2Keyword
                 return;
             }
 
-            this.xMax = double.MinValue;
-            this.yMax = double.MinValue;
-
-            GetMaxValuesFromChart();
+            //GetMaxValuesFromChart();
             GetResultingCurveFromData();
             //GetTrueStrainTrueStress();
 
@@ -125,6 +124,10 @@ namespace MatData2Keyword
         /// </summary>
         private void GetMaxValuesFromChart()
         {
+
+            this.xMax = double.MinValue;
+            this.yMax = double.MinValue;
+
 
             foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
             {
