@@ -89,7 +89,7 @@ namespace MatData2Keyword
             }
             catch (Exception err)
             {
-
+                MessageBox.Show(err.ToString());
             }
             finally
             {
