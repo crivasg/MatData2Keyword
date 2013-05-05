@@ -45,6 +45,7 @@ namespace MatData2Keyword
                     OpenAndReadFile(filename);
                 }
 
+                GetMaxValuesFromChart();
                 this.AddTwoPercentOffset();
             }
         }
@@ -95,8 +96,6 @@ namespace MatData2Keyword
             {
                 fileData = null;
             }
-
-            GetMaxValuesFromChart();
             
         }
 
