@@ -109,13 +109,28 @@ namespace MatData2Keyword
                 return;
             }
 
-            //GetMaxValuesFromChart();
-            GetResultingCurveFromData();
+            GetMaxValuesFromChart();
+            GenerateAnnotations();
+
+            
+            //GetResultingCurveFromData();
             //GetTrueStrainTrueStress();
 
+
+        }
+
+        /// <summary>
+        /// Create the MS Chart annotations for two items.
+        /// 1. Intersection of the 0.2% offset line
+        /// 2. Get the max stress value of the plot.
+        /// </summary>
+        private void GenerateAnnotations()
+        {
+
+            //Intersection of the 0.2% offset line
             DataPoint dp = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
 
-            // Draw a text anotation in the MS chart.
+            // Draw a callout with the stress and strain information.
             TextAnnotation annotation = new CalloutAnnotation();
             annotation.AnchorDataPoint = matChart.Series[0].Points.Where(p => p.XValue == dp.XValue).First();
             annotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dp.XValue, dp.YValues[0]);
@@ -123,9 +138,18 @@ namespace MatData2Keyword
             annotation.BackColor = Color.White;
             annotation.Font = new Font("Arial", 12);
 
-            //MessageBox.Show(String.Format(@"{0} {1}", dp.XValue, dp.YValues[0]));
+            matChart.Annotations.Add(annotation);
 
-            matChart.Annotations.Add(annotation); ProcessData process = new ProcessData(matChart);
+            TextAnnotation maxAnnotation = new CalloutAnnotation();
+            DataPoint dpMax = matChart.Series[0].Points.FindMaxByValue("Y");
+
+            maxAnnotation.AnchorDataPoint = dpMax;
+            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpMax.XValue, dpMax.YValues[0]);
+            maxAnnotation.ForeColor = Color.Black;
+            maxAnnotation.BackColor = Color.White;
+            maxAnnotation.Font = new Font("Arial", 12);
+
+            matChart.Annotations.Add(maxAnnotation);
         }
 
         /// <summary>
