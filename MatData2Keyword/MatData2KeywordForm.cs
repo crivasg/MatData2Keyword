@@ -55,7 +55,11 @@ namespace MatData2Keyword
 
         private void ChartReset()
         {
+            matChart.Annotations.Clear();
             matChart.Series.Clear();
+
+            this.dpUltimateStrength = null;
+            this.dpYieldStrength = null;
         }
 
         private void OpenAndReadFile(String filename)
