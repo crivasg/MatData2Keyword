@@ -139,8 +139,8 @@ namespace MatData2Keyword
 
             // Draw a callout with the stress and strain information.
             TextAnnotation annotation = new CalloutAnnotation();
-            annotation.AnchorDataPoint = dpYieldStrength;
-            annotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpYieldStrength.XValue, dpYieldStrength.YValues[0]);
+            annotation.AnchorDataPoint = this.dpYieldStrength;
+            annotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", this.dpYieldStrength.XValue, this.dpYieldStrength.YValues[0]);
             annotation.ForeColor = Color.Black;
             annotation.BackColor = Color.White;
             annotation.Font = new Font("Arial", 12);
@@ -149,14 +149,13 @@ namespace MatData2Keyword
 
             TextAnnotation maxAnnotation = new CalloutAnnotation();
 
-            maxAnnotation.AnchorDataPoint = dpUltimateStrength;
-            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpUltimateStrength.XValue, dpUltimateStrength.YValues[0]);
+            maxAnnotation.AnchorDataPoint = this.dpUltimateStrength;
+            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", this.dpUltimateStrength.XValue, this.dpUltimateStrength.YValues[0]);
             maxAnnotation.ForeColor = Color.Black;
             maxAnnotation.BackColor = Color.White;
             maxAnnotation.Font = new Font("Arial", 12);
 
             matChart.Annotations.Add(maxAnnotation);
-            this.dpUltimateStrength = null;
         }
 
         /// <summary>
