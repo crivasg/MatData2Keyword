@@ -19,7 +19,7 @@ namespace MatData2Keyword
         private double yMax = double.MinValue;
         private int numberOfDataPoints = 40;
 
-        private DataPoint dpMaxStress = null;
+        private DataPoint dpUltimateStrength = null;
         private DataPoint dpYieldStrength = null;
 
         StreamReader fileData = null;
@@ -145,14 +145,14 @@ namespace MatData2Keyword
 
             TextAnnotation maxAnnotation = new CalloutAnnotation();
 
-            maxAnnotation.AnchorDataPoint = dpMaxStress;
-            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpMaxStress.XValue, dpMaxStress.YValues[0]);
+            maxAnnotation.AnchorDataPoint = dpUltimateStrength;
+            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpUltimateStrength.XValue, dpUltimateStrength.YValues[0]);
             maxAnnotation.ForeColor = Color.Black;
             maxAnnotation.BackColor = Color.White;
             maxAnnotation.Font = new Font("Arial", 12);
 
             matChart.Annotations.Add(maxAnnotation);
-            this.dpMaxStress = null;
+            this.dpUltimateStrength = null;
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace MatData2Keyword
 
             this.xMax = double.MinValue;
             this.yMax = double.MinValue;
-            this.dpMaxStress = null;
+            this.dpUltimateStrength = null;
 
 
             foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
@@ -179,7 +179,7 @@ namespace MatData2Keyword
                 if (maxDataPointY.YValues[0].CompareTo(this.yMax) > 0 )
                 {
                     this.yMax = maxDataPointY.YValues[0];
-                    this.dpMaxStress = maxDataPointY;
+                    this.dpUltimateStrength = maxDataPointY;
                 }
 
             }
