@@ -19,6 +19,9 @@ namespace MatData2Keyword
         private double yMax = double.MinValue;
         private int numberOfDataPoints = 40;
 
+        private DataPoint dpMaxStress = null;
+        private DataPoint dpYieldStrength = null;
+
         StreamReader fileData = null;
 
         public MatData2KeywordForm()
@@ -128,12 +131,12 @@ namespace MatData2Keyword
         {
 
             //Intersection of the 0.2% offset line
-            DataPoint dp = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
+            this.dpYieldStrength = Intersection.TwoSeries(matChart.Series[0], matChart.Series[@"2% Offset"]);
 
             // Draw a callout with the stress and strain information.
             TextAnnotation annotation = new CalloutAnnotation();
-            annotation.AnchorDataPoint = matChart.Series[0].Points.Where(p => p.XValue == dp.XValue).First();
-            annotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dp.XValue, dp.YValues[0]);
+            annotation.AnchorDataPoint = dpYieldStrength;
+            annotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpYieldStrength.XValue, dpYieldStrength.YValues[0]);
             annotation.ForeColor = Color.Black;
             annotation.BackColor = Color.White;
             annotation.Font = new Font("Arial", 12);
@@ -141,15 +144,15 @@ namespace MatData2Keyword
             matChart.Annotations.Add(annotation);
 
             TextAnnotation maxAnnotation = new CalloutAnnotation();
-            DataPoint dpMax = matChart.Series[0].Points.FindMaxByValue("Y");
 
-            maxAnnotation.AnchorDataPoint = dpMax;
-            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpMax.XValue, dpMax.YValues[0]);
+            maxAnnotation.AnchorDataPoint = dpMaxStress;
+            maxAnnotation.Text = String.Format(@"Strain:{0:P3} Stress:{1:N2} MPa", dpMaxStress.XValue, dpMaxStress.YValues[0]);
             maxAnnotation.ForeColor = Color.Black;
             maxAnnotation.BackColor = Color.White;
             maxAnnotation.Font = new Font("Arial", 12);
 
             matChart.Annotations.Add(maxAnnotation);
+            this.dpMaxStress = null;
         }
 
         /// <summary>
@@ -160,6 +163,7 @@ namespace MatData2Keyword
 
             this.xMax = double.MinValue;
             this.yMax = double.MinValue;
+            this.dpMaxStress = null;
 
 
             foreach (Series s in matChart.Series.Where(s => s.Name.ToUpper() != @"2% OFFSET"))
@@ -175,6 +179,7 @@ namespace MatData2Keyword
                 if (maxDataPointY.YValues[0].CompareTo(this.yMax) > 0 )
                 {
                     this.yMax = maxDataPointY.YValues[0];
+                    this.dpMaxStress = maxDataPointY;
                 }
 
             }
